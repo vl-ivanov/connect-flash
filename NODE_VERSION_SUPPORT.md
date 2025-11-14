@@ -106,7 +106,7 @@ This package is compatible with:
 ```javascript
 const express = require('express');
 const session = require('express-session');
-const flash = require('connect-flash');
+const flash = require('@stz184/connect-flash');
 
 const app = express();
 
@@ -146,7 +146,7 @@ Our CI pipeline automatically tests against all supported Node.js versions on ev
 
 ## Reporting Issues
 
-If you encounter issues with a specific Node.js version within our supported range, please [open an issue](https://github.com/jaredhanson/connect-flash/issues) with:
+If you encounter issues with a specific Node.js version within our supported range, please [open an issue](https://github.com/vl-ivanov/connect-flash/issues) with:
 
 1. Your Node.js version (`node --version`)
 2. Your npm version (`npm --version`)
@@ -163,4 +163,4 @@ If you have questions about Node.js version support, please:
 
 1. Check the [Node.js Release Schedule](https://nodejs.org/en/about/previous-releases)
 2. Review our [CHANGELOG.md](./CHANGELOG.md)
-3. Open a discussion in our [GitHub Issues](https://github.com/jaredhanson/connect-flash/issues)
+3. Open a discussion in our [GitHub Issues](https://github.com/vl-ivanov/connect-flash/issues)

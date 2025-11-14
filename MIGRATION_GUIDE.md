@@ -55,7 +55,7 @@ const messages = req.flash('info');
 The package structure and exports remain the same:
 
 ```javascript
-const flash = require('connect-flash');
+const flash = require('@stz184/connect-flash');
 app.use(flash());
 ```
 
@@ -175,7 +175,7 @@ After upgrading, verify everything works:
      req.flash('test', 'Migration successful!');
      res.redirect('/');
    });
-
+   
    app.get('/', (req, res) => {
      const messages = req.flash('test');
      res.send(messages.length ? messages[0] : 'No messages');
@@ -275,7 +275,7 @@ If you encounter issues during migration:
 
 For questions or concerns about this migration, please:
 
-- Open an issue: https://github.com/jaredhanson/connect-flash/issues
+- Open an issue: https://github.com/vl-ivanov/connect-flash/issues
 - Review the docs: See links above
 - Check Node.js support: [NODE_VERSION_SUPPORT.md](./NODE_VERSION_SUPPORT.md)
 

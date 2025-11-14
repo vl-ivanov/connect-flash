@@ -1,14 +1,10 @@
-var vows = require('vows');
-var assert = require('assert');
-var flash = require('index');
+const { expect } = require("chai");
+const flash = require("index");
 
-
-vows.describe('connect-flash').addBatch({
-  
-  'module': {
-    'should export middleware': function () {
-      assert.isFunction(flash);
-    },
-  },
-  
-}).export(module);
+describe("connect-flash", function () {
+  describe("module", function () {
+    it("should export middleware", function () {
+      expect(flash).to.be.a("function");
+    });
+  });
+});

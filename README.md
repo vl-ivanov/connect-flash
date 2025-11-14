@@ -10,15 +10,13 @@ Express 3.x removed direct support for the flash.  connect-flash brings this
 functionality back to Express 3.x, as well as any other middleware-compatible
 framework or application. +1 for [radical reusability](http://substack.net/posts/b96642/the-node-js-aesthetic).
 
----
+## Node.js Version Support
 
-<p align="center">
-  <sup>Advertisement</sup>
-  <br>
-  <a href="https://click.linksynergy.com/link?id=D*o7yui4/NM&offerid=507388.1565838&type=2&murl=https%3A%2F%2Fwww.udemy.com%2Fcourse%2Fthe-complete-web-development-bootcamp%2F&u1=kLuTGbJ5MIj5DsRzxguZr3CjzGb0gRdZ3C4KXxP">The Complete 2020 Web Development Bootcamp</a><br>Become a full-stack web developer with just one course. HTML, CSS, Javascript, Node, React, MongoDB and more!
-</p>
+This package requires **Node.js 18.x or higher**. It has been tested and is compatible with:
 
----
+- Node.js 18.x (LTS)
+- Node.js 20.x (LTS)
+- Node.js 22.x (Current)
 
 ## Install
 
@@ -26,11 +24,45 @@ framework or application. +1 for [radical reusability](http://substack.net/posts
 
 ## Usage
 
-#### Express 3.x
+#### Modern Express (4.x+)
 
-Flash messages are stored in the session.  First, setup sessions as usual by
-enabling `cookieParser` and `session` middleware.  Then, use `flash` middleware
-provided by connect-flash.
+Flash messages are stored in the session. First, set up sessions using `express-session`, then use the `flash` middleware provided by connect-flash.
+
+```javascript
+const express = require('express');
+const session = require('express-session');
+const flash = require('connect-flash');
+
+const app = express();
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 }
+}));
+app.use(flash());
+```
+
+With the `flash` middleware in place, all requests will have a `req.flash()` function
+that can be used for flash messages.
+
+```javascript
+app.get('/flash', function(req, res){
+  // Set a flash message by passing the key, followed by the value, to req.flash().
+  req.flash('info', 'Flash is back!');
+  res.redirect('/');
+});
+
+app.get('/', function(req, res){
+  // Get an array of flash messages by passing the key to req.flash()
+  res.render('index', { messages: req.flash('info') });
+});
+```
+
+#### Express 3.x (Legacy)
+
+For Express 3.x applications (deprecated):
 
 ```javascript
 var flash = require('connect-flash');
@@ -43,22 +75,6 @@ app.configure(function() {
 });
 ```
 
-With the `flash` middleware in place, all requests will have a `req.flash()` function
-that can be used for flash messages.
-
-```javascript
-app.get('/flash', function(req, res){
-  // Set a flash message by passing the key, followed by the value, to req.flash().
-  req.flash('info', 'Flash is back!')
-  res.redirect('/');
-});
-
-app.get('/', function(req, res){
-  // Get an array of flash messages by passing the key to req.flash()
-  res.render('index', { messages: req.flash('info') });
-});
-```
-
 ## Examples
 
 For an example using connect-flash in an Express 3.x app, refer to the [express3](https://github.com/jaredhanson/connect-flash/tree/master/examples/express3)
@@ -66,10 +82,22 @@ example.
 
 ## Tests
 
-    $ npm install --dev
+    $ npm install
+    $ npm test
+
+Or using make:
+
     $ make test
 
-[![Build Status](https://secure.travis-ci.org/jaredhanson/connect-flash.png)](http://travis-ci.org/jaredhanson/connect-flash)
+## Development
+
+Run linter:
+
+    $ npm run lint
+
+Run tests with coverage:
+
+    $ npm run test:coverage
 
 ## Credits
 

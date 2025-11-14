@@ -1,32 +1,46 @@
 {
-  "name": "connect-flash",
-  "version": "0.1.1",
+  "name": "@stz184/connect-flash",
+  "version": "1.0.0",
   "description": "Flash message middleware for Connect.",
-  "keywords": ["connect", "express", "flash", "messages"],
+  "keywords": [
+    "connect",
+    "express",
+    "flash",
+    "messages"
+  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaredhanson/connect-flash.git"
+    "url": "git://github.com/vl-ivanov/connect-flash.git"
   },
   "bugs": {
-    "url": "http://github.com/jaredhanson/connect-flash/issues"
+    "url": "https://github.com/vl-ivanov/connect-flash/issues"
   },
   "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "http://www.jaredhanson.net/"
+    "name": "Vladimir Ivanov",
+    "email": "info@vladimir-ivanov.net",
+    "url": "https://www.vladimir-ivanov.net/"
   },
-  "licenses": [ {
-    "type": "MIT",
-    "url": "http://www.opensource.org/licenses/MIT" 
-  } ],
+  "license": "MIT",
   "main": "./lib",
-  "dependencies": {
-  },
+  "files": [
+    "lib",
+    "LICENSE",
+    "README.md"
+  ],
+  "dependencies": {},
   "devDependencies": {
-    "vows": "0.6.x"
+    "mocha": "^10.7.3",
+    "chai": "^4.5.0",
+    "eslint": "^8.57.0",
+    "c8": "^10.1.2"
   },
   "scripts": {
-    "test": "NODE_PATH=lib node_modules/.bin/vows test/*-test.js"
+    "test": "mocha test/**/*-test.js",
+    "test:coverage": "c8 --reporter=text --reporter=lcov npm test",
+    "lint": "eslint lib/**/*.js",
+    "pretest": "npm run lint"
   },
-  "engines": { "node": ">= 0.4.0" }
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

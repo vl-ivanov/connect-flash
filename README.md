@@ -1,5 +1,10 @@
 # connect-flash
 
+[![CI](https://github.com/vl-ivanov/connect-flash/workflows/CI/badge.svg)](https://github.com/vl-ivanov/connect-flash/actions)
+[![npm version](https://badge.fury.io/js/%40stz184%2Fconnect-flash.svg)](https://badge.fury.io/js/%40stz184%2Fconnect-flash)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 The flash is a special area of the session used for storing messages.  Messages
 are written to the flash and cleared after being displayed to the user.  The
 flash is typically used in combination with redirects, ensuring that the message

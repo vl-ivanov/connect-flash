@@ -14,6 +14,13 @@ test:
 lint:
 	npm run lint
 
+.PHONY: lint-fix
+lint-fix:
+	npm run lint -- --fix
+
+prettier:
+	npm run prettier
+
 # ==============================================================================
 # Combined Commands
 # ==============================================================================

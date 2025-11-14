@@ -107,10 +107,13 @@ Run tests with coverage:
 ## Credits
 
   - [Jared Hanson](http://github.com/jaredhanson)
+  - [Vladimir Ivanov](https://github.com/vl-ivanov)
   - [TJ Holowaychuk](https://github.com/visionmedia)
 
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2012-2013 Jared Hanson <[http://jaredhanson.net/](http://jaredhanson.net/)>
+Copyright (c) 
+2012-2013 Jared Hanson <[https://www.jaredhanson.me/](https://www.jaredhanson.me/)> 
+2025 Vladimir Ivanov <[https://Vladimir-ivanov](https://Vladimir-ivanov.net)>
